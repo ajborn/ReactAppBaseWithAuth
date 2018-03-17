@@ -34,7 +34,8 @@ class CelebrityJokes extends Component {
           <div className="col-sm-6" key={index}>
             <div className="panel panel-danger">
               <div className="panel-heading">
-                <h3 className="panel-title"><span className="btn">#{joke.id}</span></h3>
+                <h3 className="panel-title">
+                  <span className="btn">#{joke.id}</span></h3>
               </div>
               <div className="panel-body">
                 <p> {joke.joke} </p>

@@ -29,7 +29,7 @@ app.get('/api/jokes/food', (req, res) => {
   let foodJokes = [
   {
     id: 99991,
-    joke: "When Chuck Norris was a baby, he didn't suck his mother's breast. His mother served him whiskey, straight out of the bottle."
+    joke: 'When Chuck Norris was a baby, he didnt suck his mothers breast.'
   },
   {
     id: 99992,

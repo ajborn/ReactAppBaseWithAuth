@@ -1,14 +1,14 @@
 import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
 import auth0 from 'auth0-js';
-const ID_TOKEN_KEY = 'id_token';
+const ID_TOKEN_KEY = '5aac5e51367786665e9392cc';
 const ACCESS_TOKEN_KEY = 'access_token';
 
-const CLIENT_ID = 'COvcCuh3vcce3FgC8aOogbcrTbF72hxI';
+const CLIENT_ID = '0F8E7j1BvgQl3ohlkay9Tz4sIA7REdh8';
 const CLIENT_DOMAIN = 'austinsapp.auth0.com';
 const REDIRECT = 'http://localhost:3000/callback';
-const SCOPE = 'YOUR_SCOPE';
-const AUDIENCE = 'AUDIENCE_ATTRIBUTE';
+const SCOPE = 'read:alljokes';
+const AUDIENCE = 'https://chucknorris-api.com';
 
 var auth = new auth0.WebAuth({
     clientID: CLIENT_ID,
@@ -61,17 +61,13 @@ function getParameterByName(name) {
 // Get and store access_token in local storage
 export function setAccessToken() {
     let accessToken = getParameterByName('access_token');
-    //if (accessToken) {
-        localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
-   // }
+    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
 }
 
 // Get and store id_token in local storage
 export function setIdToken() {
     let idToken = getParameterByName('id_token');
-    //if (idToken) { 
-        localStorage.setItem(ID_TOKEN_KEY, idToken); 
-    //}
+    localStorage.setItem(ID_TOKEN_KEY, idToken);
 }
 
 export function isLoggedIn() {
@@ -80,16 +76,12 @@ export function isLoggedIn() {
 }
 
 function getTokenExpirationDate(encodedToken) {
-    try {
-        const token = decode(encodedToken);
-        if (!token.exp) { return null; }
+    const token = decode(encodedToken);
+    if (!token.exp) { return null; }
 
-        var date = new Date(0);
-        console.log(date);
-        date.setUTCSeconds(token.exp);
-    } catch (err) {
-        console.log(err);
-    }
+    var date = new Date(0);
+    console.log("Date: ", date);
+    date.setUTCSeconds(token.exp);
     return date;
 }
 

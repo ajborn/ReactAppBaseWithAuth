@@ -20,7 +20,7 @@ const authCheck = jwt({
         jwksUri: "https://austinsapp.auth0.com/.well-known/jwks.json"
     }),
     // This is the identifier we set when we created the API
-    audience: 'chucknorris-api',
+    audience: 'https://chucknorris-api.com',
     issuer: "https://austinsapp.auth0.com/",
     algorithms: ['RS256']
 });

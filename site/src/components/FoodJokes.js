@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Nav from './Nav';
 import { getFoodData } from '../utils/chucknorris-api';
-
+import RaisedButton from 'material-ui/RaisedButton';
 
 class FoodJokes extends Component {
 
@@ -30,7 +30,6 @@ class FoodJokes extends Component {
         <Nav />
         <h3 className="text-center">Chuck Norris Food Jokes</h3>
         <hr />
-
         {jokes.map((joke, index) => (
           <div className="col-sm-6" key={index}>
             <div className="panel panel-primary">
